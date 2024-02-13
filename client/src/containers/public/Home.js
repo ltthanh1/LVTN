@@ -8,6 +8,7 @@ const Home = () => {
     <div className='w-full flex flex-col items-center h-full boder boder-red-300'>
       <Header />
       <Navigation />
+
       <div className='w-1100 flex flex-col items-center justify-start mt-3'>
         <Outlet />
       </div>

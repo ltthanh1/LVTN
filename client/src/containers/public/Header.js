@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <div className='w-1100'>
 
-      <div className='w-1100 flex items-center justify-between'>
+      <div className='w-full flex items-center justify-between'>
         <img
           src={logo}
           alt="logo"
@@ -29,7 +29,7 @@ const Header = () => {
           <Button text={'Đăng tin mới'} textColor='text-white' bgColor='bg-secondary2' IcAfter={GoPlusCircle} />
         </div>
       </div>
-    </div>
+     </div>
 
   )
 }
