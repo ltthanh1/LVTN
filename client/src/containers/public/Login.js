@@ -10,7 +10,7 @@ const Login = () => {
   const location = useLocation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { isLoggedIn } = useSelector(state.auth)
+  const { isLoggedIn } = useSelector(state => state.auth)
   const [isRegister, setisRegister] = useState(location.state?.flag)
   const [invalidFields, setInvalidFields] = useState([]);
   const [payload, setPayload] = useState({
