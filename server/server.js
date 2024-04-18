@@ -1,29 +1,22 @@
-import express from "express";
+import express from 'express'
 require('dotenv').config()
 import cors from 'cors'
-import initRoutes from './src/routes/index'
-import connectDB from "./src/config/connectDB";
+import initRoutes from './src/routes'
+import connectDatabase from './src/config/connectDatabase'
 
-
-
-const app = express();
+const app = express()
 app.use(cors({
     origin: process.env.CLIENT_URL,
-    methods: ["POST", "GET", "PUT", "DELETE"]
+    methods: ["POST", 'GET', 'PUT', "DELETE"]
 }))
-
 app.use(express.json())
-
-app.use(express.urlencoded({ extends: true }))
+app.use(express.urlencoded({ extended: true }))
 
 initRoutes(app)
-connectDB()
+connectDatabase()
 
-app.use('/', (req, res) => {
-    res.send('server is running')
-})
-
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3001
 const listener = app.listen(port, () => {
-    console.log(`server is running on port ${listener.address().port} `)
+    console.log(`Server is running on the port ${listener.address().port}`)
 })
+

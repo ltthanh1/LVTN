@@ -1,43 +1,45 @@
 import actionTypes from './actionTypes'
 import { apiRegister, apiLogin } from '../../services/auth'
 
-export const register = (payload) => async (dispacth) => {
+export const register = (payload) => async (dispatch) => {
     try {
         const response = await apiRegister(payload)
         if (response?.data.err === 0) {
-            dispacth({
+            dispatch({
                 type: actionTypes.REGISTER_SUCCESS,
                 data: response.data.token
             })
         } else {
-            dispacth({
+            dispatch({
                 type: actionTypes.REGISTER_FAIL,
-                data: response.data.message
+                data: response.data.msg
             })
         }
+
     } catch (error) {
-        dispacth({
+        dispatch({
             type: actionTypes.REGISTER_FAIL,
             data: null
         })
     }
 }
-export const login = (payload) => async (dispacth) => {
+export const login = (payload) => async (dispatch) => {
     try {
         const response = await apiLogin(payload)
         if (response?.data.err === 0) {
-            dispacth({
+            dispatch({
                 type: actionTypes.LOGIN_SUCCESS,
                 data: response.data.token
             })
         } else {
-            dispacth({
+            dispatch({
                 type: actionTypes.LOGIN_FAIL,
-                data: response.data.message
+                data: response.data.msg
             })
         }
+
     } catch (error) {
-        dispacth({
+        dispatch({
             type: actionTypes.LOGIN_FAIL,
             data: null
         })

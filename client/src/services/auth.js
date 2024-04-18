@@ -8,6 +8,7 @@ export const apiRegister = (payload) => new Promise(async (resolve, reject) => {
             data: payload
         })
         resolve(response)
+
     } catch (error) {
         reject(error)
     }
@@ -20,7 +21,9 @@ export const apiLogin = (payload) => new Promise(async (resolve, reject) => {
             data: payload
         })
         resolve(response)
+
     } catch (error) {
         reject(error)
     }
 })
+
