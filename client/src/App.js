@@ -5,6 +5,7 @@ import { System, CreatePost } from './containers/System'
 import * as actions from './store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import ManagerPost from './containers/System/ManagerPost'
 
 
 
@@ -24,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-primary">
+    <div className="bg-primary overflow-hidden">
       <Routes>
         <Route path={path.HOME} element={<Home />}>
           <Route path='*' element={<Homepage />} />
@@ -39,6 +40,7 @@ function App() {
         </Route>
         <Route path={path.SYSTEM} element={<System />} >
           <Route path={path.CREATE_POST} element={<CreatePost />} />
+          <Route path={path.MANAGER_POST} element={<ManagerPost />} />
         </Route>
 
       </Routes>

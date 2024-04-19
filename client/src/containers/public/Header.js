@@ -30,9 +30,9 @@ const Header = () => {
             <div className='w-full flex items-center justify-between'>
                 <Link to={'/'} >
                     <img
-                        src={logo}
-                        alt="logo"
-                        className='w-[240px] h-[70px] object-contain'
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McDonald%27s_logo.svg/1200px-McDonald%27s_logo.svg.png"
+                        alt=""
+                        className='w-[240px] h-[70px] flex justify-center'
                     />
                 </Link>
                 <div className='flex items-center gap-1'>

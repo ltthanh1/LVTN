@@ -70,7 +70,8 @@ const Item = ({ images, user, title, star, description, attributes, address, id 
                             type='button'
                             className='bg-blue-700 text-white p-1 rounded-md'
                         >
-                            {`Gọi ${user?.phone}`}
+                            {/* {`Gọi ${user?.phone}`} */}
+                            {`Gọi ngay`}
                         </button>
                         <button
                             type='button'
