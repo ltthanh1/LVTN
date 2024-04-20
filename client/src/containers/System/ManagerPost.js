@@ -1,11 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import * as actions from '../../store/actions'
 
 const ManagerPost = () => {
+    const dispach = useDispatch()
+    const { postOfCurrent } = useSelector(state => state.post)
+    useEffect(() => {
+        dispach(actions.getPostsLimitAdmin)
+    }, [])
+    console.log(postOfCurrent)
     return (
         <div>
-            <h1 className='text-3xl font-medium py-4 border-b border-gray-200'>Quản lý tin đăng</h1>
+            <div className='py-4 border-b border-gray-200 flex items-center justify-between'>
+                <h1 className='text-3xl font-medium '>Quản lý tin đăng</h1>
+                <select className='outline-none border p-2 boder-gray-300 rounded-md'>
+                    <option value="">Lọc theo trạng thái</option>
+                </select>
+            </div>
+            <table className="w-full">
+                <thead>
+                    <tr>
+                        <th>Mã tin</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tiêu đề</th>
+                        <th>Giá</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày hết hạn</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                        <td>Malcolm Lockyer</td>
+                        <td>1961</td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
     )
 }
 
-export default ManagerPost
+export default ManagerPost 

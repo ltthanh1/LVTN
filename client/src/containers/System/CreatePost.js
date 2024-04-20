@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Overview, Address, Loading, Button } from '../../components'
-import { apiUploadImages } from '../../services'
+import { apiUploadImages, apiCreatePost } from '../../services'
 import icons from '../../ultils/icons'
 import { getCodes, getCodesArea } from '../../ultils/Common/getCodes'
 import { useSelector } from 'react-redux'
-import { apiCreatePost } from '../../services'
+// import { } from '../../services'
 import Swal from 'sweetalert2'
 import validate from '../../ultils/Common/validateFields'
 
@@ -68,10 +68,9 @@ const CreatePost = () => {
             userId: currentData.id,
             priceNumber: +payload.priceNumber / Math.pow(10, 6),
             target: payload.target || 'Tất cả',
-            label: `${categories?.find(item => item.code === payload?.categoryCode)?.value}${payload?.address?.split((',')[0])}`
+            label: `${categories?.find(item => item.code === payload?.categoryCode)?.value} ${payload?.address?.split((',')[0])}`
         }
-        // console.log(finalPayload)
-        const result = validate(payload, setInvalidFields)
+        const result = validate(finalPayload, setInvalidFields)
         if (result === 0) {
             const response = await apiCreatePost(finalPayload)
             if (response?.data.err === 0) {
@@ -87,7 +86,7 @@ const CreatePost = () => {
                         areaCode: '',
                         description: '',
                         target: '',
-                        s: ''
+                        province: ''
                     })
                 })
             } else {
