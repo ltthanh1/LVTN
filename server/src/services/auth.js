@@ -17,7 +17,7 @@ export const registerService = ({ phone, password, name }) => new Promise(async 
                 id: v4()
             }
         })
-        const token = response[1] && jwt.sign({ id: response[0].id, phone: response[0].phone }, process.env.SECRET_KEY, { expiresIn: '6h' })
+        const token = response[1] && jwt.sign({ id: response[0].id, phone: response[0].phone }, process.env.SECRET_KEY, { expiresIn: '1d' })
         resolve({
             err: token ? 0 : 2,
             msg: token ? 'Register is successfully !' : 'Phone number has been aldready used !',

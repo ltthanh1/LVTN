@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import logo from '../../assets/logowithoutbg.png'
 import { Button, User } from '../../components'
+import LOGO from '../../assets/LOGO.jpeg'
 import icons from '../../ultils/icons'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { path } from '../../ultils/constant'
@@ -30,9 +30,9 @@ const Header = () => {
             <div className='w-full flex items-center justify-between'>
                 <Link to={'/'} >
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McDonald%27s_logo.svg/1200px-McDonald%27s_logo.svg.png"
+                        src={LOGO}
                         alt=""
-                        className='w-[240px] h-[70px] flex justify-center'
+                        className='w-[220px] h-[100px] pt-1 flex justify-center'
                     />
                 </Link>
                 <div className='flex items-center gap-1'>
