@@ -6,12 +6,14 @@ import { getCodes, getCodesArea } from '../../ultils/Common/getCodes'
 import { useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 import validate from '../../ultils/Common/validateFields'
+import { useDispatch } from 'react-redux'
+import { resetDataEdit } from '../../store/actions'
 
 
 const { BsCameraFill, ImBin } = icons
 
 const CreatePost = ({ isEdit }) => {
-
+    const dispatch = useDispatch()
     const { dataEdit } = useSelector(state => state.post)
     const [payload, setPayload] = useState(() => {
         const initData = {
@@ -19,11 +21,11 @@ const CreatePost = ({ isEdit }) => {
             title: dataEdit?.title || '',
             priceNumber: dataEdit?.priceNumber * 1000000 || 0,
             areaNumber: dataEdit?.areaNumber || 0,
-            images: JSON.parse(dataEdit?.images?.image) || '',
+            images: dataEdit?.images?.image ? JSON.parse(dataEdit?.images?.image) : '',
             address: dataEdit?.address || '',
             priceCode: dataEdit?.priceCode || '',
             areaCode: dataEdit?.areaCode || '',
-            description: JSON.parse(dataEdit?.description) || '',
+            description: dataEdit?.description ? JSON.parse(dataEdit?.description) : '',
             target: dataEdit?.overviews?.target || '',
             province: dataEdit?.province || ''
         }
@@ -94,19 +96,8 @@ const CreatePost = ({ isEdit }) => {
                 const response = await apiUpdatePost(finalPayload)
                 if (response?.data.err === 0) {
                     Swal.fire('Thành công', 'Đã cập nhật thành công', 'success').then(() => {
-                        setPayload({
-                            categoryCode: '',
-                            title: '',
-                            priceNumber: 0,
-                            areaNumber: 0,
-                            images: '',
-                            address: '',
-                            priceCode: '',
-                            areaCode: '',
-                            description: '',
-                            target: '',
-                            province: ''
-                        })
+                        resetPayload()
+                        dispatch(resetDataEdit())
                     })
                 } else {
                     Swal.fire('Oops!', 'Đã xảy ra lỗi', 'error')
@@ -118,19 +109,7 @@ const CreatePost = ({ isEdit }) => {
 
                 if (response?.data.err === 0) {
                     Swal.fire('Thành công', 'Đã thêm bài đăng mới', 'success').then(() => {
-                        setPayload({
-                            categoryCode: '',
-                            title: '',
-                            priceNumber: 0,
-                            areaNumber: 0,
-                            images: '',
-                            address: '',
-                            priceCode: '',
-                            areaCode: '',
-                            description: '',
-                            target: '',
-                            province: ''
-                        })
+                        resetPayload()
                     })
                 } else {
                     Swal.fire('Oops!', 'Đã xảy ra lỗi', 'error')
@@ -139,6 +118,21 @@ const CreatePost = ({ isEdit }) => {
             }
         }
 
+    }
+    const resetPayload = () => {
+        setPayload({
+            categoryCode: '',
+            title: '',
+            priceNumber: 0,
+            areaNumber: 0,
+            images: '',
+            address: '',
+            priceCode: '',
+            areaCode: '',
+            description: '',
+            target: '',
+            province: ''
+        })
     }
 
     return (

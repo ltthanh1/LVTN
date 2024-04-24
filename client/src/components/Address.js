@@ -14,14 +14,14 @@ const Address = ({ setPayload, invalidFields, setInvalidFields }) => {
 
     useEffect(() => {
         let addressArr = dataEdit?.address?.split(',')
-        let foundProvince = provinces.length > 0 && provinces?.find(item =>
+        let foundProvince = provinces?.length > 0 && provinces?.find(item =>
             item.province_name === addressArr[addressArr.length - 1]?.trim())
         setProvince(foundProvince ? foundProvince.province_id : '')
     }, [provinces])
 
     useEffect(() => {
         let addressArr = dataEdit?.address?.split(',')
-        let foundDistrict = districts.length > 0 && districts?.find(item =>
+        let foundDistrict = districts?.length > 0 && districts?.find(item =>
             item.district_name === addressArr[addressArr.length - 2]?.trim())
         setDistrict(foundDistrict ? foundDistrict.district_id : '')
     }, [districts]);
