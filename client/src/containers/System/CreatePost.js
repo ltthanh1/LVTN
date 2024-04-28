@@ -40,7 +40,18 @@ const CreatePost = ({ isEdit }) => {
 
     useEffect(() => {
         if (dataEdit) {
-            let images = JSON.parse(dataEdit?.images?.image)
+            // let images = JSON.parse(dataEdit?.images?.image)
+            let images;
+            if (dataEdit?.images?.image) {
+                try {
+                    images = JSON.parse(dataEdit.images.image);
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                    images = []; // Fallback to an empty array or any appropriate default value
+                }
+            } else {
+                images = []; // Fallback to an empty array or any appropriate default value
+            }
             images && setImagesPreview(images)
         }
     }, [dataEdit]);

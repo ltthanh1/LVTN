@@ -13,18 +13,42 @@ const Address = ({ setPayload, invalidFields, setInvalidFields }) => {
     const [reset, setReset] = useState(false)
 
     useEffect(() => {
-        let addressArr = dataEdit?.address?.split(',')
-        let foundProvince = provinces?.length > 0 && provinces?.find(item =>
-            item.province_name === addressArr[addressArr.length - 1]?.trim())
-        setProvince(foundProvince ? foundProvince.province_id : '')
-    }, [provinces])
+        if (dataEdit) {
+            let addressArr = dataEdit?.address?.split(',')
+            // let foundProvince = provinces?.length && provinces?.find(item =>
+            //     item.province_name === addressArr[addressArr.length - 1]?.trim())
+            let foundProvince = null;
+            if (Array.isArray(provinces) && provinces.length > 0 && Array.isArray(addressArr) && addressArr.length > 0) {
+                const lastAddressElement = addressArr[addressArr.length - 1];
+                if (lastAddressElement) {
+                    foundProvince = provinces.find(
+                        item => item.province_name === lastAddressElement.trim()
+                    );
+                }
+            }
+
+            setProvince(foundProvince ? foundProvince.province_id : '')
+        }
+    }, [provinces, dataEdit])
 
     useEffect(() => {
-        let addressArr = dataEdit?.address?.split(',')
-        let foundDistrict = districts?.length > 0 && districts?.find(item =>
-            item.district_name === addressArr[addressArr.length - 2]?.trim())
-        setDistrict(foundDistrict ? foundDistrict.district_id : '')
-    }, [districts]);
+        if (dataEdit) {
+            let addressArr = dataEdit?.address?.split(',')
+            // let foundDistrict = districts?.length > 0 && districts?.find(item =>
+            //     item.district_name === addressArr[addressArr.length - 2]?.trim())
+            let foundDistrict = null;
+            if (Array.isArray(districts) && districts.length > 0 && Array.isArray(addressArr) && addressArr.length > 0) {
+                const lastAddressElement = addressArr[addressArr.length - 2];
+                if (lastAddressElement) {
+                    foundDistrict = districts.find(
+                        item => item.district_name === lastAddressElement.trim()
+                    );
+                }
+            }
+
+            setDistrict(foundDistrict ? foundDistrict.district_id : '')
+        }
+    }, [districts, dataEdit]);
 
     useEffect(() => {
         const fetchPublicProvince = async () => {

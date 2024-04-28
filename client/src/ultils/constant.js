@@ -10,7 +10,8 @@ export const path = {
     SEARCH: 'tim-kiem',
     SYSTEM: '/he-thong/*',
     CREATE_POST: 'tao-moi-bai-dang',
-    MANAGER_POST: 'quan-ly-bai-dang'
+    MANAGER_POST: 'quan-ly-bai-dang',
+    EIDT_ACCOUNT: 'thong-tin-tai-khoan'
 }
 
 export const text = {
