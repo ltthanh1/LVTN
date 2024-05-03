@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Login, Rental, Homepage, DetailPost, SearchDetail } from './containers/Public'
+import { Home, Login, Rental, Homepage, DetailPost, SearchDetail, Contact } from './containers/Public'
 import { path } from './ultils/constant'
 import { System, CreatePost, EditAccount } from './containers/System'
 import * as actions from './store/actions'
@@ -36,7 +36,8 @@ function App() {
           <Route path={path.NHA_CHO_THUE} element={<Rental />} />
           <Route path={path.SEARCH} element={<SearchDetail />} />
           <Route path={path.DETAL_POST__TITLE__POSTID} element={<DetailPost />} />
-          <Route path={'chi-tiet/*'} element={<DetailPost />} />
+          <Route path={path.CONTACT} element={<Contact />} />
+          {/* <Route path={path.DETAIL_ALL} element={<DetailPost />} /> */}
         </Route>
         <Route path={path.SYSTEM} element={<System />} >
           <Route path={path.CREATE_POST} element={<CreatePost />} />

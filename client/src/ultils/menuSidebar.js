@@ -18,13 +18,13 @@ const memuSidebar = [
     {
         id: 4,
         text: 'Sửa thông tin cá nhân',
-        path: '/he-thong/sua-thong-tin-ca-nhan',
+        path: '/he-thong/thong-tin-tai-khoan',
         icon: <BiUserPin />
     },
     {
         id: 5,
         text: 'Liên hệ',
-        path: '/he-thong/lien-he',
+        path: '/lien-he',
         icon: <BiUserPin />
     }
 ]

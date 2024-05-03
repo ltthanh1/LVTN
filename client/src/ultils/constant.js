@@ -11,7 +11,10 @@ export const path = {
     SYSTEM: '/he-thong/*',
     CREATE_POST: 'tao-moi-bai-dang',
     MANAGER_POST: 'quan-ly-bai-dang',
-    EIDT_ACCOUNT: 'thong-tin-tai-khoan'
+    EIDT_ACCOUNT: 'thong-tin-tai-khoan',
+    CONTACT: 'lien-he',
+    DETAIL: '/chi-tiet/',
+    DETAIL_ALL: 'chi-tiet/*'
 }
 
 export const text = {
@@ -23,16 +26,25 @@ export const location = [
     {
         id: 'hcm',
         name: 'Phòng trọ Hồ Chí Minh',
-        image: 'https://phongtro123.com/images/location_hcm.jpg'
+        image: 'https://phongtro123.com/images/location_hcm.jpg',
+        provinceCode: 'CUID'
     },
     {
         name: 'Phòng trọ Hà Nội',
         image: 'https://phongtro123.com/images/location_hn.jpg',
         id: 'hn',
+        provinceCode: 'NDOE'
     },
     {
         name: 'Phòng trọ Đà nẵng',
         image: 'https://phongtro123.com/images/location_dn.jpg',
         id: 'dn',
+        provinceCode: 'NNAE'
+    },
+    {
+        name: 'Phòng trọ Cần Thơ',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-797m1496xVFFTKgUU8vyfW5ZueuM15y_RX7y9_WxA&s',
+        id: 'dn',
+        provinceCode: 'NNTE'
     },
 ]

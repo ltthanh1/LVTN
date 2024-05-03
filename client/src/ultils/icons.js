@@ -8,6 +8,12 @@ import { MdOutlineHouseSiding, MdOutlineLibraryBooks } from 'react-icons/md'
 import { FiSearch } from 'react-icons/fi'
 import { ImPencil2, ImBin } from 'react-icons/im'
 import { BiUserPin } from 'react-icons/bi'
+import { FaLocationDot } from "react-icons/fa6";
+import { CiStopwatch } from "react-icons/ci";
+import { CiHashtag } from "react-icons/ci";
+import { GoDotFill } from "react-icons/go";
+import { FaPhoneAlt } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
 
 const icons = {
     AiOutlinePlusCircle,
@@ -30,7 +36,13 @@ const icons = {
     AiOutlineLogout,
     BsChevronDown,
     ImBin,
-    BsCameraFill
+    BsCameraFill,
+    FaLocationDot,
+    CiStopwatch,
+    CiHashtag,
+    GoDotFill,
+    FaPhoneAlt,
+    SiZalo
 }
 
 export default icons

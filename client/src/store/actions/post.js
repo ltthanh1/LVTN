@@ -103,3 +103,30 @@ export const editData = (dataEdit) => ({
 export const resetDataEdit = () => ({
     type: actionTypes.RESET_DATAEDIT,
 })
+
+export const getOutStandingPosts = () => async (dispatch) => {
+    try {
+        const response = await apiGetPostsLimit({
+            limitPost: 5,
+            order: ['star', 'DESC']
+        })
+        if (response?.data.err === 0) {
+            dispatch({
+                type: actionTypes.GET_OUTSTANDING,
+                outStandingPost: response.data.response.rows,
+            })
+        } else {
+            dispatch({
+                type: actionTypes.GET_OUTSTANDING,
+                msg: response.data.msg,
+                outStandingPost: null
+            })
+        }
+
+    } catch (error) {
+        dispatch({
+            type: actionTypes.GET_OUTSTANDING,
+            outStandingPost: null
+        })
+    }
+}
