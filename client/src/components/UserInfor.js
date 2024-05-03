@@ -5,10 +5,10 @@ import { Button } from './'
 
 const { GoDotFill, FaPhoneAlt, SiZalo } = icons
 
-const UserInfor = ({ userData}) => {
+const UserInfor = ({ userData }) => {
     return (
         <div className='w-full bg-yellow-500 rounded-md flex flex-col items-center p-4 gap-4'>
-            <img src={anonAvartar} alt='avartar' className='w-16 h-16 object-contain rounded-full' />
+            <img src={anonAvartar} alt='avatar' className='w-16 h-16 object-contain rounded-full' />
             <h3 className='font-medium- text-xl'>{userData?.name}</h3>
             <span className='flex items-center g-2'>
                 <GoDotFill color='green' />

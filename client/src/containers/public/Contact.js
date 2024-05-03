@@ -17,6 +17,32 @@ const Contact = () => {
             })
         })
     }
+    // const handleSubmit = async () => {
+    //     try {
+    //         const response = await fetch('/api/send-email', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(payload)
+    //         });
+
+    //         if (response.ok) {
+    //             Swal.fire(`Cảm ơn ${payload.name ? payload.name : 'bạn'}`, 'Phản hồi của bạn đã được chúng tôi ghi nhận', 'success').then(() => {
+    //                 setPayload({
+    //                     name: '',
+    //                     phone: '',
+    //                     content: ''
+    //                 });
+    //             });
+    //         } else {
+    //             Swal.fire('Có lỗi xảy ra', 'Vui lòng thử lại sau 1', 'error');
+    //         }
+    //     } catch (error) {
+    //         Swal.fire('Có lỗi xảy ra', 'Vui lòng thử lại sau', 'error');
+    //     }
+    // };
+
     return (
         <div className='w-full'>
             <h1 className='text-2xl font-semibold mb-6'>Liên hệ với chúng tôi</h1>
@@ -25,7 +51,7 @@ const Contact = () => {
                     <h4 className='font-medium'>Thông tin liên hệ</h4>
                     <span>Chúng tôi biết bạn có rất nhiều sự lựa chọn. Nhưng cảm ơn vì đã lựa chọn chúng tôi</span>
                     <span>Điện thoại : 0335350913</span>
-                    <span>Email : cskh.trogiare@gmail.com</span>
+                    <span>Email : tai127589@gmail.com</span>
                     <span>Zalo : 033535013</span>
                     <span>Địa chỉ : LE-4.07, Tòa nhà Lexington Residence, số 67 Mai Chí Thọ, Phường An Phú, Quận 2, Hồ Chí Minh</span>
                 </div>

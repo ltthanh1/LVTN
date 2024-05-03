@@ -1,15 +1,21 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 import { text } from '../ultils/dataIntro'
 import icons from '../ultils/icons'
 import { Button } from '../components'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { formatVietnameseToString } from '../ultils/Common/formatVietnameseToString'
+import { path } from '../ultils/constant'
 
 const { GrStar, } = icons
 const star = [1, 2, 3, 4, 5]
 
 const Intro = () => {
+
+    const navigate = useNavigate()
+    const goLogin = useCallback((flag) => {
+        navigate(path.LOGIN, { state: { flag } })
+    }, [])
 
     const { categories } = useSelector(state => state.app)
 
@@ -62,6 +68,8 @@ const Intro = () => {
                 bgColor='bg-secondary2'
                 textColor='text-white'
                 px='px-6'
+                onClick={() => navigate('/he-thong/tao-moi-bai-dang')}
+
             />
             <div className='h-12'></div>
         </div>

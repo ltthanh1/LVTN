@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { text } from '../ultils/dataContact'
 import { Button } from '../components'
+import { useNavigate } from 'react-router-dom'
+import { path } from '../ultils/constant'
 
 const Contact = () => {
+    const navigate = useNavigate()
+    const goLogin = useCallback(() => {
+        navigate()
+    }, [])
     return (
         <div className='bg-white rounded-md shadow-md p-4 w-3/5 flex flex-col justify-center items-center gap-6'>
             <img
@@ -16,8 +22,8 @@ const Contact = () => {
                     return (
                         <div key={index} className='flex flex-col items-center justify-center'>
                             <span className='text-orange-500 font-semibold'>{item.text}</span>
-                            <span className='text-blue-900 text-[24px] font-semibold'>{item.phone}</span>
-                            <span className='text-blue-900 text-[24px] font-semibold'>{item.zalo}</span>
+                            <span className='text-blue-900 text-[20px] font-semibold'>{item.phone}</span>
+                            <span className='text-blue-900 text-[20px] font-semibold'>{item.zalo}</span>
                         </div>
                     )
                 })}
@@ -27,6 +33,7 @@ const Contact = () => {
                 bgColor='bg-blue-600'
                 textColor='text-white'
                 px='px-6'
+                onClick={() => navigate('/lien-he')}
             />
         </div>
     )

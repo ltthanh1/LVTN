@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { createSearchParams, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPostsLimit } from '../../store/actions'
-import { SliderCustom } from '../../components'
+import { Slider } from '../../components'
 import { UserInfor, RelatedPost } from '../../components'
 import icons from '../../ultils/icons'
 import { useNavigate, useCreateSearchParams } from 'react-router-dom'
@@ -30,7 +30,7 @@ const DetailPost = () => {
     return (
         <div className='w-full flex flex gap-2'>
             <div className='w-[70%] '>
-                <SliderCustom images={posts && posts.length > 0 && JSON.parse(posts[0]?.images?.image)} />
+                <Slider images={posts && posts.length > 0 && JSON.parse(posts[0]?.images?.image)} />
                 <div className=' bg-white rounded-md shadow-md p-4'  >
                     <div className='flex flex-col gap-2'>
                         <h2 className='text-xl font-bold text-red-600'>{posts[0]?.title}</h2>

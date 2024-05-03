@@ -199,10 +199,10 @@ const CreatePost = ({ isEdit }) => {
 
                     </div>
                 </div>
-                <div className='w-[30%] flex-none'>
+                {/* <div className='w-[30%] flex-none'>
                     maps
                     <Loading />
-                </div>
+                </div> */}
             </div>
         </div>
     )

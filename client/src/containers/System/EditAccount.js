@@ -3,7 +3,7 @@ import { InputReadOnly, InputFormV2, Button } from '../../components'
 import anonAvatar from '../../assets/anon-avatar.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { apiUploadImages } from '../../services'
-import { apiupdateUser } from '../../services'
+import { apiUpdateUser } from '../../services'
 import { blobToBase64, fileToBase64 } from '../../ultils/Common/toBase64'
 import { getCurrent } from '../../store/actions'
 import Swal from 'sweetalert2'
@@ -21,7 +21,7 @@ const EditAccount = () => {
 
     const handleSubmit = async () => {
         // const invalidcounter = validate(payload, setInvalidFields)
-        const response = await apiupdateUser(payload)
+        const response = await apiUpdateUser(payload)
         if (response?.data.err === 0) {
             Swal.fire('Success', 'Chỉnh sửa thông tin cá nhân thành công', 'success').then(() => {
                 dispacth(getCurrent())
@@ -46,8 +46,8 @@ const EditAccount = () => {
                     <InputReadOnly value={currentData?.phone} editPhone direction='flex-row' label='Số điện thoại:' />
 
                     <InputFormV2
-                        setValue={setPayload}
                         name='name'
+                        setValue={setPayload}
                         direction='flex-row'
                         value={payload.name}
                         label='Tên hiển thị:'
@@ -61,8 +61,8 @@ const EditAccount = () => {
                         label='Email:'
                     /> */}
                     <InputFormV2
-                        setValue={setPayload}
                         name='zalo'
+                        setValue={setPayload}
                         direction='flex-row'
                         value={payload.zalo}
                         label='Zalo:'

@@ -19,7 +19,7 @@ export const getOne = (id) => new Promise(async (resolve, reject) => {
         reject(error)
     }
 })
-export const updateUser = ({ payload, id }) => new Promise(async (resolve, reject) => {
+export const updateUser = (payload, id) => new Promise(async (resolve, reject) => {
     try {
         const response = await db.User.update(payload, {
             where: { id }
@@ -31,4 +31,4 @@ export const updateUser = ({ payload, id }) => new Promise(async (resolve, rejec
     } catch (error) {
         reject(error)
     }
-})
+})  
