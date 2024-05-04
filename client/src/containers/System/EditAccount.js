@@ -7,10 +7,8 @@ import { apiUpdateUser } from '../../services'
 import { blobToBase64, fileToBase64 } from '../../ultils/Common/toBase64'
 import { getCurrent } from '../../store/actions'
 import Swal from 'sweetalert2'
-// import validate from '../../ultils/Common/validateFields'
 
 const EditAccount = () => {
-    // const [invalidFields, setInvalidFields] = useState([])
     const { currentData } = useSelector(state => state.user)
     const dispacth = useDispatch()
     const [payload, setPayload] = useState({
@@ -20,7 +18,6 @@ const EditAccount = () => {
     })
 
     const handleSubmit = async () => {
-        // const invalidcounter = validate(payload, setInvalidFields)
         const response = await apiUpdateUser(payload)
         if (response?.data.err === 0) {
             Swal.fire('Success', 'Chỉnh sửa thông tin cá nhân thành công', 'success').then(() => {
@@ -80,7 +77,7 @@ const EditAccount = () => {
                         <label className='w-48 flex-none' htmlFor='password'>Mật khẩu</label>
                         <small className='flex-auto text-blue-500 h-12 cursor-pointer'>Đổi mật khẩu</small>
                     </div>
-                    <div className='flex mb-6'>
+                    <div className='flex'>
                         <label className='w-48 flex-none' htmlFor='avatar'>Ảnh đại diện</label>
                         <div>
                             <img src={payload.avatar || anonAvatar} alt='avatar' className='w-28 h-28 rounded-full object-cover' />

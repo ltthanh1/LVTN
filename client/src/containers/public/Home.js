@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Header from './Header'
 import { Outlet, useLocation } from 'react-router-dom'
-import { Navigation, Search } from './index'
+import { Footer, Navigation, Search } from './index'
 import { Intro, Contact } from '../../components'
 import { useSelector } from 'react-redux'
 import { path } from '../../ultils/constant'
@@ -24,9 +24,8 @@ const Home = () => {
             </div>
             <Intro />
             <Contact />
-            <div className='h-[500px]'>
+            <Footer />
 
-            </div>
         </div>
     )
 }

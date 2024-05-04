@@ -12,7 +12,7 @@ const InputReadOnly = ({ label, value, direction, editPhone }) => {
                     className='border border-gray-200 outline-none rounded-md bg-gray-100 p-2 w-full'
                     value={value || ''}
                 />
-                {editPhone && <small className='text-blue-500 py-4 cursor-pointer'>Đổi số điện thoại</small>}
+                {/* {editPhone && <small className='text-blue-500 py-4 cursor-pointer'>Đổi số điện thoại</small>} */}
             </div>
         </div>
     )

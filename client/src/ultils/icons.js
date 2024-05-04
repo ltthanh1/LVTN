@@ -14,6 +14,9 @@ import { CiHashtag } from "react-icons/ci";
 import { GoDotFill } from "react-icons/go";
 import { FaPhoneAlt } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
+import { FaFacebook } from "react-icons/fa";
+import { CiTwitter } from "react-icons/ci";
+import { FaYoutube } from "react-icons/fa";
 
 const icons = {
     AiOutlinePlusCircle,
@@ -42,7 +45,11 @@ const icons = {
     CiHashtag,
     GoDotFill,
     FaPhoneAlt,
-    SiZalo
+    SiZalo,
+    FaFacebook,
+    CiTwitter,
+    FaYoutube
+
 }
 
 export default icons

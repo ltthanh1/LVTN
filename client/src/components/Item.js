@@ -29,13 +29,13 @@ const Item = ({ images, user, title, star, description, attributes, address, id 
                     )
                 })}
                 <span className='bg-overlay-70 text-white px-2 rounded-md absolute left-1 bottom-4'>{`${images.length} ảnh`}</span>
-                <span
+                {/* <span
                     className='text-white absolute right-5 bottom-1'
                     onMouseEnter={() => setIsHoverHeart(true)}
                     onMouseLeave={() => setIsHoverHeart(false)}
                 >
                     {isHoverHeart ? <RiHeartFill size={26} color='red' /> : <RiHeartLine size={26} />}
-                </span>
+                </span> */}
             </Link>
             <div className='w-3/5'>
                 <div className='flex justify-between gap-4 w-full'>
