@@ -27,15 +27,15 @@ const Header = () => {
 
     return (
         <div ref={headerRef} className='w-3/5 '>
-            <div className='w-full flex items-center justify-between'>
+            <div className='w-full  flex items-center justify-between'>
                 <Link to={'/'} >
                     <img
                         src={LOGO}
                         alt=""
-                        className='w-[220px] h-[100px] pt-5 flex justify-center'
+                        className='w-[220px] h-[100px] pt-5 flex justify-center rounded-full'
                     />
                 </Link>
-                <div className='flex items-center gap-1'>
+                <div className='flex items-center pt-4 gap-1'>
                     {!isLoggedIn && <div className='flex items-center gap-1'>
                         <small>TroGiaRe.com xin chào !</small>
                         <Button
@@ -87,7 +87,7 @@ const Header = () => {
                         </div>}
                     </div>}
                     <Button
-                        text={'Đăng tin mới'}
+                        text={'Đăng tin  miễn phí'}
                         textColor='text-white'
                         bgColor='bg-secondary2'
                         IcAfter={AiOutlinePlusCircle}

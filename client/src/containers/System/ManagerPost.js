@@ -58,7 +58,7 @@ const ManagerPost = () => {
                 <h1 className='text-3xl font-medium '>Quản lý tin đăng</h1>
                 <select onChange={e => setStatus(+e.target.value)} value={status} className='outline-none border p-2 boder-gray-300 rounded-md'>
                     <option value="0">Lọc theo trạng thái</option>
-                    <option value="1">Đăng hoạt động</option>
+                    <option value="1">Đang hoạt động</option>
                     <option value="2">Đã hết hạn</option>
                 </select>
             </div>
@@ -78,7 +78,7 @@ const ManagerPost = () => {
                 <tbody>
                     {!posts
                         ? <tr>
-                            <td>aaaa</td>
+                            <td>Lỗi</td>
                         </tr>
                         : posts?.map(item => {
                             return (

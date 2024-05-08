@@ -36,6 +36,7 @@ const Login = () => {
             password: payload.password
         }
         let invalids = validate(finalPayload, setInvalidFields)
+        let isAdmin = payload.isAdmin
         if (invalids === 0) isRegister ? dispatch(actions.register(payload)) : dispatch(actions.login(payload))
     }
 

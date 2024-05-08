@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        '1100': '1100px'
+        '1100': '1200px'
       },
       backgroundColor: {
         primary: '#F5F5F5',
@@ -17,7 +17,7 @@ module.exports = {
       },
       maxWidth: {
         '600': '600px',
-        '1100': '1100px'
+        '1100': '1200px'
       },
       minWidth: {
         '300': '300px',

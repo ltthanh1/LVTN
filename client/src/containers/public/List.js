@@ -37,8 +37,7 @@ const List = ({ categoryCode }) => {
                 <span>Sắp xếp:</span>
                 <span onClick={() => setSort(0)} className={`bg-gray-200 p-2 rounded-md cursor-pointer hover:underline ${sort === 0 && 'text-blue-500'}`}>Mặc định:</span>
                 <span onClick={() => setSort(1)} className={`bg-gray-200 p-2 rounded-md cursor-pointer hover:underline ${sort === 1 && 'text-blue-500'}`}>Mới nhất:</span>
-                {/* <Button bgColor='bg-gray-200' text='Mặc định' />
-                <Button bgColor='bg-gray-200' text='Mới nhất' /> */}
+
             </div>
             <div className='items'>
                 {posts?.length > 0 && posts.map(item => {

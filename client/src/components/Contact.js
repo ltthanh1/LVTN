@@ -10,7 +10,7 @@ const Contact = () => {
         navigate()
     }, [])
     return (
-        <div className='bg-white rounded-md shadow-md p-4 w-3/5 flex flex-col justify-center items-center gap-6'>
+        <div className='bg-white rounded-md shadow-md p-4 w-4/5 flex flex-col justify-center items-center gap-6'>
             <img
                 src={text.image}
                 alt="thumbnal"

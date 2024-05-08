@@ -130,10 +130,12 @@ const DetailPost = () => {
                             </tbody>
                         </table>
                     </div>
-                    <div className='mt-8'>
-                        <h3 className='font-semibold text-xl my-4'>Bản đồ:</h3>
+                    {/* <div className='mt-8'>
+                        <h3 className='font-semibold text-xl my-4'>Bản đồ:
+                            <map address={posts[0]?.address} />
+                        </h3>
 
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='w-[30%] flex flex-col gap-6'>

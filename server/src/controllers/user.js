@@ -31,3 +31,21 @@ export const updateUser = async (req, res) => {
         })
     }
 }
+
+export const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.user
+        const payload = req.body
+        if (!payload) return res.status(400).json({
+            err: 1,
+            msg: 'missing payload in controller'
+        })
+
+        const response = await services.deleteUser(id)
+        return res.status(200).json(response)
+    } catch (e) {
+        return res.status(404).json({
+            message: e
+        })
+    }
+}

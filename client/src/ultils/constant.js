@@ -14,7 +14,8 @@ export const path = {
     EIDT_ACCOUNT: 'thong-tin-tai-khoan',
     CONTACT: 'lien-he',
     DETAIL: '/chi-tiet/',
-    DETAIL_ALL: 'chi-tiet/*'
+    DETAIL_ALL: 'chi-tiet/*',
+    ADMIN_PAGE: 'admin-page/'
 }
 
 export const text = {

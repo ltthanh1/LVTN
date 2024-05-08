@@ -25,3 +25,16 @@ export const apiUpdateUser = (payload) => new Promise(async (resolve, reject) =>
         reject(error)
     }
 })
+export const apiDeleteUser = (payload) => new Promise(async (resolve, reject) => {
+    try {
+        const response = await axios({
+            method: 'delete',
+            url: '/api/v1/user/delete-user',
+            data: payload
+        })
+        resolve(response)
+
+    } catch (error) {
+        reject(error)
+    }
+})

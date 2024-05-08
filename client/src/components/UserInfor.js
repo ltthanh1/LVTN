@@ -18,7 +18,13 @@ const UserInfor = ({ userData }) => {
                 <FaPhoneAlt />{userData?.phone}
 
             </a>
-            <a className='bg-white py-2 flex items-center justify-center gap-1 w-full rounded-md text-black font-bold text-lg' href={`https://zalo.me/${userData?.zalo}`}>
+            <a
+                className='bg-white py-2 flex items-center justify-center gap-1 w-full rounded-md text-black font-bold text-lg'
+                href={`https://zalo.me/${userData?.zalo}`
+
+                }
+
+            >
                 <SiZalo size='30' color='blue' />
 
             </a>

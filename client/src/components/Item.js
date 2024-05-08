@@ -61,25 +61,29 @@ const Item = ({ images, user, title, star, description, attributes, address, id 
                 <p className='text-gray-500 w-full h-[50px] text-ellipsis overflow-hidden'>
                     {description}
                 </p>
-                <div className='flex items-center my-5 justify-between'>
-                    <div className=' flex items-center'>
-                        <img src="https://lnsel.com/wp-content/uploads/2018/12/anon-avatar-300x300.png" alt="avatar" className='w-[30px] h-[30px] object-cover rounded-full' />
-                        <p>{user?.name}</p>
+                <div className='flex items-center justify-between'>
+                    <div className='flex items-center my-5 justify-between'>
+                        <div className=' flex gap-2 items-center '>
+                            <img src="https://lnsel.com/wp-content/uploads/2018/12/anon-avatar-300x300.png" alt="avatar" className='w-[30px] h-[30px] object-cover rounded-full' />
+                            <p>{user?.name}</p>
+                        </div>
                     </div>
-                    <div className='flex items-center gap-1'>
-                        <button
-                            type='button'
-                            className='bg-blue-700 text-white p-1 rounded-md'
-                        >
-                            {`Gọi ${user?.phone}`}
-                        </button>
-                        <a
-                            className='text-blue-700 px-1 rounded-md border border-blue-700'
-                            href={`https://zalo.me/${user?.zalo}`}
-                            target='_blank'
-                        >
-                            Nhắn zalo
-                        </a>
+                    <div className='flex items-center my-5 justify-between'>
+                        <div className='flex items-center gap-1'>
+                            <button
+                                type='button'
+                                className='bg-blue-700 text-white p-1 rounded-md'
+                            >
+                                {`SĐT: ${user?.phone}`}
+                            </button>
+                            <a
+                                className='text-blue-700 p-1 rounded-md border border-orange-400'
+                                href={`https://zalo.me/${user?.zalo}`}
+                                target='_blank'
+                            >
+                                Nhắn zalo
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
