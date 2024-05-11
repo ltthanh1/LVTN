@@ -1,32 +1,40 @@
-import React, { useEffect } from 'react'
-import { createSearchParams, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getPostsLimit } from '../../store/actions'
-import { Slider } from '../../components'
-import { UserInfor, RelatedPost } from '../../components'
-import icons from '../../ultils/icons'
-import { useNavigate, useCreateSearchParams } from 'react-router-dom'
-import { path } from '../../ultils/constant'
+import React, { useEffect } from 'react';
+import { createSearchParams, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPostsLimit } from '../../store/actions';
+import { Slider } from '../../components';
+import { UserInfor, RelatedPost } from '../../components';
+import icons from '../../ultils/icons';
+import { useNavigate } from 'react-router-dom';
+import { path } from '../../ultils/constant';
+import Comment from './Comment';
+import { updatePostLikeStatus } from '../../store/actions/post';
 
-const { FaLocationDot, TbReportMoney, RiCrop2Line, CiHashtag, CiStopwatch } = icons
+const { FaLocationDot, TbReportMoney, RiCrop2Line, CiHashtag, CiStopwatch } = icons;
 
 const DetailPost = () => {
-    const { postId } = useParams()
-    const dispatch = useDispatch()
-    const { posts } = useSelector(state => state.post)
-    const navigate = useNavigate()
+    const { postId } = useParams();
+    const dispatch = useDispatch();
+    const { posts } = useSelector(state => state.post);
+    const navigate = useNavigate();
+
     useEffect(() => {
-        postId && dispatch(getPostsLimit({ id: postId }))
+        postId && dispatch(getPostsLimit({ id: postId }));
+    }, [postId, dispatch]);
 
-    }, [postId])
-
-    const handleFilterLabel = (labelCode) => {
-        const titleSearch = `Tìm kiếm tin đăng theo chuyện mục ${posts[0]?.labelData?.value}`
+    const handleFilterLabel = () => {
+        const labelCode = posts[0]?.labelData?.code;
+        const titleSearch = `Tìm kiếm tin đăng theo chuyện mục ${posts[0]?.labelData?.value}`;
         navigate({
             pathname: `/${path.SEARCH}`,
-            search: createSearchParams({ labelCode: posts[0]?.labelData?.code }).toString()
-        }, { state: { titleSearch } })
-    }
+            search: createSearchParams({ labelCode }).toString()
+        }, { state: { titleSearch } });
+    };
+
+    const handleLikeToggle = (postId, isLiked) => {
+        // Dispatch an action to update the like status in the Redux store
+        dispatch(updatePostLikeStatus(postId, !isLiked));
+    };
     return (
         <div className='w-full flex flex gap-2'>
             <div className='w-[70%] '>
@@ -137,12 +145,14 @@ const DetailPost = () => {
 
                     </div> */}
                 </div>
+                <Comment />
             </div>
             <div className='w-[30%] flex flex-col gap-6'>
-                <UserInfor userData={posts[0]?.user} />
+               <UserInfor userData={posts[0]?.user} onLikeToggle={handleLikeToggle} />
                 <RelatedPost />
                 <RelatedPost newPost />
             </div>
+
         </div>
     )
 }

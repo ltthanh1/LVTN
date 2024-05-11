@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import ManagerPost from './containers/System/ManagerPost'
 
-
-
 function App() {
   const dispatch = useDispatch()
   const { isLoggedIn } = useSelector(state => state.auth)
@@ -45,7 +43,7 @@ function App() {
           <Route path={path.EIDT_ACCOUNT} element={<EditAccount />} />
           <Route path={path.ADMIN_PAGE} element={<AdminPage />} />
         </Route>
-
+  
       </Routes>
     </div>
   );

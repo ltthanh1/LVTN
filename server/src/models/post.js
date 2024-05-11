@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         imagesId: DataTypes.STRING,
         priceNumber: DataTypes.FLOAT,
         areaNumber: DataTypes.FLOAT,
+        isLiked: DataTypes.BOOLEAN
     }, {
         sequelize,
         modelName: 'Post',

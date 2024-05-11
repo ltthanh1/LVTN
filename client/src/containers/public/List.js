@@ -3,13 +3,12 @@ import { Button, Item } from '../../components'
 import { getPosts, getPostsLimit } from '../../store/actions/post'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
-
 const List = ({ categoryCode }) => {
     const dispatch = useDispatch()
     const [searchParams] = useSearchParams()
     const { posts } = useSelector(state => state.post)
+    const showFavorites = useSelector(state => state.post.showFavorites);
     const [sort, setSort] = useState(0);
-
     useEffect(() => {
         let params = []
         for (let entry of searchParams.entries()) {
@@ -27,6 +26,7 @@ const List = ({ categoryCode }) => {
         if (sort === 1) searchParamsObject.order = ['createdAt', 'DESC']
         dispatch(getPostsLimit(searchParamsObject))
     }, [searchParams, categoryCode, sort])
+    console.log(showFavorites);
     return (
         <div className='w-full p-2 bg-white shadow-md rounded-md px-6'>
             <div className='flex items-center justify-between my-3'>
@@ -40,8 +40,16 @@ const List = ({ categoryCode }) => {
 
             </div>
             <div className='items'>
-                {posts?.length > 0 && posts.map(item => {
-                    return (
+                {showFavorites ? ( // Render only liked posts if "Yêu thích" link is clicked
+                    <div className="post-list">
+                        {posts && posts.map(post => (
+                            <div key={post.id} className="post">
+                                <div>{post.title}</div>
+                            </div>
+                        ))}
+                    </div>
+                ) : ( // Render all posts if "Yêu thích" link is not clicked
+                    posts?.length > 0 && posts.map(item => (
                         <Item
                             key={item?.id}
                             address={item?.address}
@@ -52,12 +60,16 @@ const List = ({ categoryCode }) => {
                             title={item?.title}
                             user={item?.user}
                             id={item?.id}
+                            isLiked={item?.isLiked}
                         />
-                    )
-                })}
+                    ))
+                )}
             </div>
         </div>
     )
 }
 
-export default List
+
+
+export default List;
+
