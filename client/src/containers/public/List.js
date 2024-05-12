@@ -60,7 +60,7 @@ const List = ({ categoryCode }) => {
                             title={item?.title}
                             user={item?.user}
                             id={item?.id}
-                            isLiked={item?.isLiked}
+                          
                         />
                     ))
                 )}

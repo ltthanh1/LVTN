@@ -2,21 +2,26 @@ import React, { memo, useState } from 'react'
 import anonAvartar from '../assets/anon-avatar.png'
 import icons from '../ultils/icons'
 import HeartButton from './HeartButton'
+import { useSelector } from 'react-redux';
+import { saveFavoritePost } from '../store/actions/post';
+import { useDispatch } from 'react-redux'
 
-import { useSelector } from 'react-redux'; 
 const { GoDotFill, FaPhoneAlt, SiZalo } = icons
-
-const UserInfor = ({ userData, onLikeToggle }) => {
-
+const UserInfor = ({ userData, onLikeToggle, userId }) => {
+const dispatch = useDispatch();
     const { posts } = useSelector(state => state.post);
-    const handleLikeToggle = (postId, updatedLiked) => {
-        const updatedPosts = posts.map(post => {
-            if (post.id === postId) {
-                return { ...post, isLiked: updatedLiked };
+    const handleLikeToggle = async (postId, updatedLiked) => {
+        onLikeToggle(postId, updatedLiked); // Update the like status in the UI
+
+        if (updatedLiked) {
+            try {
+                // Call the service function to add the post to favorites
+                dispatch(saveFavoritePost(userId, postId));
+            } catch (error) {
+                console.error('Error adding post to favorites:', error);
+                // Handle error (e.g., show a notification to the user)
             }
-            return post;
-        });
-        onLikeToggle(updatedPosts); // Call the onLikeToggle function with the updated posts array
+        }
     };
 
     return (
@@ -41,7 +46,7 @@ const UserInfor = ({ userData, onLikeToggle }) => {
                 <SiZalo size='30' color='blue' />
 
             </a>
-          
+
             <div className="post-list">
                 {posts && posts.map(post => (
                     <div key={post.id} className="post">
