@@ -162,10 +162,3 @@ export const setShowFavorites = (showFavorites) => ({
     type: actionTypes.SET_SHOW_FAVORITES,
     payload: showFavorites,
   });
-
-export const saveFavoritePost = (userId, postId) => {
-    return {
-        type: actionTypes.SAVE_FAVORITE_POST,
-        payload: { userId, postId } // Payload is an object containing userId and postId
-    };
-};

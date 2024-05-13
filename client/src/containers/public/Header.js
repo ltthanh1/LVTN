@@ -70,14 +70,6 @@ const Header = ({}) => {
                             />
                         </div>
                     )}
-                    <Link
-                        to='/yeu-thich'
-                        className='text-black font-bold text-lg flex items-center gap-1'
-                        onClick={handleShowFavorites} // Call handleShowFavorites function when clicked
-                    >
-                        <FaHeart /> Yêu thích
-                    </Link>
-
                     {isLoggedIn && (
                         <div className='flex items-center gap-3 relative'>
                             <User />
