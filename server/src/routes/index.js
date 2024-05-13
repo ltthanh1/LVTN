@@ -6,6 +6,8 @@ import priceRouter from './price'
 import areaRouter from './area'
 import provinceRouter from './province'
 import userRouter from './user'
+import commentRouter from './comment'
+import favoritePostRouter from './favoritePost'
 // import contactRouter from './contact'
 
 const initRoutes = (app) => {
@@ -17,6 +19,8 @@ const initRoutes = (app) => {
     app.use('/api/v1/area', areaRouter)
     app.use('/api/v1/province', provinceRouter)
     app.use('/api/v1/user', userRouter)
+    app.use('/api/v1/comment', commentRouter)
+    app.use('/api/v1/favoritePost', favoritePostRouter)
     // app.use('/api/send-email', contactRouter)
 
     return app.use('/', (req, res) => {

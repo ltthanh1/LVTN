@@ -10,6 +10,6 @@ const router = express.Router();
 router.use(verifyToken); // Apply token verification middleware to all routes below
 
 router.post('/add', commentController.addComment); // Route to add a comment
-router.get('/get-by-post/:postId', commentController.getCommentsByPostId); // Route to get comments by post ID
+router.get('/get/:postId', commentController.getCommentsByPostId); // Route to get comments by post ID
 
 export default router;

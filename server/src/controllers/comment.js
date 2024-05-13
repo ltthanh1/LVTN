@@ -13,7 +13,7 @@ export const addComment = async (req, res) => {
             });
         }
         // Call service function to add comment
-        const result = await commentService.addComment(userId, postId, content);
+        const result = await commentService.createComment(userId, postId, content);
         return res.status(200).json(result); // Return success message
     } catch (error) {
         console.error('Error adding comment:', error);

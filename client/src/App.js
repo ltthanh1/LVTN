@@ -6,6 +6,7 @@ import * as actions from './store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import ManagerPost from './containers/System/ManagerPost'
+import FavoritePostsPage from './containers/Public/FavoritePostsPage'
 
 function App() {
   const dispatch = useDispatch()
@@ -35,7 +36,7 @@ function App() {
           <Route path={path.SEARCH} element={<SearchDetail />} />
           <Route path={path.DETAL_POST__TITLE__POSTID} element={<DetailPost />} />
           <Route path={path.CONTACT} element={<Contact />} />
-          {/* <Route path={path.DETAIL_ALL} element={<DetailPost />} /> */}
+          <Route path={path.YEU_THICH} element={<FavoritePostsPage />} />
         </Route>
         <Route path={path.SYSTEM} element={<System />} >
           <Route path={path.CREATE_POST} element={<CreatePost />} />

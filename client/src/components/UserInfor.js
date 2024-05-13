@@ -3,25 +3,23 @@ import anonAvartar from '../assets/anon-avatar.png'
 import icons from '../ultils/icons'
 import HeartButton from './HeartButton'
 import { useSelector } from 'react-redux';
-import { saveFavoritePost } from '../store/actions/post';
+import { saveFavoritePost, deleteFavoritePostsByPostId } from '../services/favoritePost';
 import { useDispatch } from 'react-redux'
 
 const { GoDotFill, FaPhoneAlt, SiZalo } = icons
 const UserInfor = ({ userData, onLikeToggle, userId }) => {
-const dispatch = useDispatch();
     const { posts } = useSelector(state => state.post);
     const handleLikeToggle = async (postId, updatedLiked) => {
         onLikeToggle(postId, updatedLiked); // Update the like status in the UI
-
-        if (updatedLiked) {
-            try {
-                // Call the service function to add the post to favorites
-                dispatch(saveFavoritePost(userId, postId));
-            } catch (error) {
-                console.error('Error adding post to favorites:', error);
-                // Handle error (e.g., show a notification to the user)
-            }
+        if(updatedLiked) {
+            saveFavoritePost({
+                userId:userId,
+                postId: postId
+            })
+        } else {
+            deleteFavoritePostsByPostId(postId); 
         }
+
     };
 
     return (

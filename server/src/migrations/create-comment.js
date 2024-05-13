@@ -6,13 +6,11 @@ module.exports = {
             userId: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                primaryKey: true,
 
             },
             postId: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                primaryKey: true,
 
             },
             commentId: {
